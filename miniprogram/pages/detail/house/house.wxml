@@ -1,0 +1,102 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="detail-skeleton">
+    <view class="skeleton skeleton-banner"></view>
+    <view class="skeleton skeleton-line" style="width:60%"></view>
+    <view class="skeleton skeleton-line" style="width:40%"></view>
+  </view>
+
+  <block wx:elif="{{!error && detail}}">
+    <!-- 图片 -->
+    <swiper
+      wx:if="{{detail.imageList.length}}"
+      class="gallery"
+      indicator-dots="{{true}}"
+      indicator-color="rgba(255,255,255,.6)"
+      indicator-active-color="#ffffff"
+      circular="{{true}}"
+    >
+      <swiper-item wx:for="{{detail.imageList}}" wx:key="*this">
+        <image
+          class="gallery-img"
+          src="{{item}}"
+          mode="aspectFill"
+          data-src="{{item}}"
+          bindtap="onPreview"
+        />
+      </swiper-item>
+    </swiper>
+    <image wx:else class="gallery-img" src="/assets/images/placeholder.png" mode="aspectFill" />
+
+    <!-- 核心信息 -->
+    <view class="card">
+      <view class="price-row">
+        <text class="price">¥{{detail.priceText}}</text>
+        <text class="price-unit">/月</text>
+        <text wx:if="{{detail.depositType}}" class="deposit">{{detail.depositType}}</text>
+      </view>
+      <view class="title">{{detail.title}}</view>
+      <view class="sub-info">{{detail.layout}} · {{detail.area}}㎡ · {{detail.floorText}} · {{detail.orientation}}</view>
+
+      <view class="info-grid">
+        <view class="info-cell">
+          <text class="info-label">区域</text>
+          <text class="info-value">{{detail.district || '未填'}}</text>
+        </view>
+        <view class="info-cell">
+          <text class="info-label">装修</text>
+          <text class="info-value">{{detail.decoration || '未填'}}</text>
+        </view>
+        <view class="info-cell">
+          <text class="info-label">朝向</text>
+          <text class="info-value">{{detail.orientation || '未填'}}</text>
+        </view>
+        <view class="info-cell">
+          <text class="info-label">更新时间</text>
+          <text class="info-value">{{detail.timeText}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 配套 -->
+    <view wx:if="{{detail.facilityList.length}}" class="card">
+      <view class="card-title">房屋配套</view>
+      <view class="facility">
+        <view wx:for="{{detail.facilityList}}" wx:key="*this" class="facility-item">{{item}}</view>
+      </view>
+    </view>
+
+    <!-- 地址 -->
+    <view class="card address-card">
+      <view class="card-title">房屋地址</view>
+      <view class="address-row">
+        <text class="address-text">{{detail.address || '未填写详细地址'}}</text>
+        <text class="address-copy" bindtap="onCopyAddress">复制</text>
+      </view>
+    </view>
+
+    <!-- 描述 -->
+    <view wx:if="{{detail.descList.length}}" class="card">
+      <view class="card-title">房源描述</view>
+      <view wx:for="{{detail.descList}}" wx:key="*this" class="desc-p">{{item}}</view>
+    </view>
+
+    <view class="tips">温馨提示：看房请提前电话联系，注意核实房源与身份信息，勿提前支付定金。</view>
+
+    <!-- 底部操作栏占位 -->
+    <view class="bottom-placeholder"></view>
+  </block>
+
+  <empty-state wx:elif="{{error}}" text="房源不存在或已下架" subText="请返回列表查看其他房源" />
+
+  <view wx:if="{{detail}}" class="action-bar safe-bottom">
+    <view class="action-info">
+      <text class="action-phone">{{detail.contactName || '联系人'}}</text>
+      <text class="action-tip">{{detail.contactPhone || '暂无电话'}}</text>
+    </view>
+    <view class="action-btns">
+      <view wx:if="{{detail.contactWechat}}" class="btn btn-plain" bindtap="onCopyWechat">复制微信</view>
+      <view class="btn btn-primary" bindtap="onCall">电话联系</view>
+      <button class="btn btn-share" open-type="share">分享</button>
+    </view>
+  </view>
+</view>

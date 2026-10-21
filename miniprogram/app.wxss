@@ -1,0 +1,16 @@
+@import './styles/variables.wxss';
+@import './styles/common.wxss';
+
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 28rpx;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+view,
+text,
+image,
+scroll-view {
+  box-sizing: border-box;
+}

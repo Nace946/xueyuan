@@ -1,0 +1,170 @@
+.page {
+  padding-bottom: 40rpx;
+}
+
+/* 服务总入口：租房/招聘大卡 + 便民服务宫格（融合为一个板块） */
+.service-panel {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  margin: 20rpx 24rpx 0;
+  padding: 24rpx 24rpx 8rpx;
+  box-shadow: 0 4rpx 20rpx rgba(20, 60, 50, 0.04);
+}
+
+/* 主信息入口：蓝色大卡 */
+.main-entry {
+  display: flex;
+  gap: 20rpx;
+}
+
+.entry-card {
+  flex: 1;
+  height: 150rpx;
+  background: linear-gradient(135deg, #3a8ef0, #2b7de9);
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(43, 125, 233, 0.24);
+}
+
+.entry-card:active {
+  opacity: 0.85;
+}
+
+.entry-icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 16rpx;
+}
+
+.entry-text {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2rpx;
+}
+
+/* 更多便民服务：四宫格（与上方大卡同属一个板块） */
+.panel-divider {
+  height: 1rpx;
+  background: var(--color-line);
+  margin: 24rpx 0 20rpx;
+}
+
+.services-title {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--color-text);
+  padding-bottom: 20rpx;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 24rpx;
+}
+
+.service-item:active {
+  opacity: 0.7;
+}
+
+.service-icon {
+  width: 72rpx;
+  height: 72rpx;
+}
+
+.service-name {
+  margin-top: 10rpx;
+  font-size: var(--font-sm);
+  color: var(--color-text);
+}
+
+/* 轮播 */
+.banner {
+  margin: 20rpx 24rpx 0;
+}
+
+.banner-swiper {
+  height: 280rpx;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 280rpx;
+}
+
+/* 首页紧凑列表容器（招聘模块：不展示图片，沿用列表页的紧凑行） */
+.list-card {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  margin: 0 24rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 20rpx rgba(20, 30, 50, 0.04);
+}
+
+.section {
+  margin-top: 12rpx;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx 8rpx;
+}
+
+.section-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.section-more {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+}
+
+.skeleton-list {
+  padding: 0 24rpx;
+}
+
+.skeleton-card {
+  display: flex;
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.skeleton-img {
+  width: 220rpx;
+  height: 170rpx;
+  flex-shrink: 0;
+}
+
+.skeleton-right {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.skeleton-line {
+  height: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.footer-tip {
+  margin-top: 32rpx;
+  text-align: center;
+  font-size: var(--font-xs);
+  color: var(--color-text-placeholder);
+}

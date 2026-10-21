@@ -1,0 +1,90 @@
+<view class="page">
+  <!-- 服务总入口：租房 / 招聘 + 便民服务（同一板块） -->
+  <view class="service-panel">
+    <view class="main-entry">
+      <view class="entry-card" bindtap="goHouseList">
+        <image class="entry-icon" src="/assets/icons/entry-house.png" />
+        <text class="entry-text">租房信息</text>
+      </view>
+      <view class="entry-card" bindtap="goJobList">
+        <image class="entry-icon" src="/assets/icons/entry-job.png" />
+        <text class="entry-text">招聘信息</text>
+      </view>
+    </view>
+
+    <view class="panel-divider"></view>
+
+    <view class="services-title">更多便民服务</view>
+    <view class="services-grid">
+      <view
+        class="service-item"
+        wx:for="{{services}}"
+        wx:key="key"
+        data-name="{{item.name}}"
+        bindtap="onServiceTap"
+      >
+        <image class="service-icon" src="{{item.icon}}" mode="aspectFit" />
+        <text class="service-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 轮播 -->
+  <view wx:if="{{banners.length}}" class="banner">
+    <swiper
+      class="banner-swiper"
+      indicator-dots="{{true}}"
+      indicator-color="rgba(255,255,255,.6)"
+      indicator-active-color="#ffffff"
+      autoplay="{{true}}"
+      circular="{{true}}"
+      interval="4000"
+    >
+      <swiper-item wx:for="{{banners}}" wx:key="id" bindtap="onBannerTap" data-item="{{item}}">
+        <image class="banner-img" src="{{item.image}}" mode="aspectFill" />
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 推荐房源 -->
+  <view class="section">
+    <view class="section-head">
+      <text class="section-title">精选房源</text>
+      <text class="section-more" bindtap="goHouseList">更多 ›</text>
+    </view>
+
+    <view wx:if="{{loading && !houses.length}}" class="skeleton-list">
+      <view wx:for="{{[1,2,3]}}" wx:key="*this" class="skeleton-card">
+        <view class="skeleton skeleton-img"></view>
+        <view class="skeleton-right">
+          <view class="skeleton skeleton-line" style="width:70%"></view>
+          <view class="skeleton skeleton-line" style="width:50%"></view>
+          <view class="skeleton skeleton-line" style="width:40%"></view>
+        </view>
+      </view>
+    </view>
+
+    <house-card wx:for="{{houses}}" wx:key="id" item="{{item}}" />
+    <empty-state wx:if="{{!loading && !houses.length}}" text="暂无房源" subText="去后台发布第一条房源信息吧" />
+  </view>
+
+  <!-- 最新招聘 -->
+  <view class="section">
+    <view class="section-head">
+      <text class="section-title">最新招聘</text>
+      <text class="section-more" bindtap="goJobList">更多 ›</text>
+    </view>
+
+    <view class="list-card">
+      <job-item
+        wx:for="{{jobs}}"
+        wx:key="id"
+        item="{{item}}"
+        last="{{index === jobs.length - 1}}"
+      />
+    </view>
+    <empty-state wx:if="{{!loading && !jobs.length}}" text="暂无招聘" subText="去后台发布第一条招聘信息吧" />
+  </view>
+
+  <view class="footer-tip">—— 信息由平台整理发布，请联系发布方核实 ——</view>
+</view>

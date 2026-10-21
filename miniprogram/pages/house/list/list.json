@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "租房房源",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "house-item": "/components/house-item/index",
+    "empty-state": "/components/empty-state/index",
+    "load-more": "/components/load-more/index"
+  }
+}

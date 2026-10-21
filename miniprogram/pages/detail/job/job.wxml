@@ -1,0 +1,106 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="detail-skeleton">
+    <view class="skeleton skeleton-line" style="width:50%"></view>
+    <view class="skeleton skeleton-line" style="width:30%"></view>
+    <view class="skeleton skeleton-block"></view>
+  </view>
+
+  <block wx:elif="{{!error && detail}}">
+    <!-- 头部 -->
+    <view class="hero">
+      <image class="hero-logo" src="{{detail.companyLogo || '/assets/images/placeholder.png'}}" mode="aspectFill" />
+      <view class="hero-main">
+        <view class="hero-title">{{detail.title}}</view>
+        <view class="hero-salary">{{detail.salaryText}}</view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="company">{{detail.companyName}}</view>
+      <view class="company-sub">
+        <text wx:if="{{detail.companyType}}">{{detail.companyType}}</text>
+        <text wx:if="{{detail.jobType}}"> · {{detail.jobType}}</text>
+      </view>
+
+      <view class="info-grid">
+        <view class="info-cell">
+          <text class="info-label">工作地点</text>
+          <text class="info-value">{{detail.district || '未填'}}</text>
+        </view>
+        <view class="info-cell">
+          <text class="info-label">工作类型</text>
+          <text class="info-value">{{detail.jobType || '未填'}}</text>
+        </view>
+        <view class="info-cell">
+          <text class="info-label">结算方式</text>
+          <text class="info-value">{{detail.payType || '面议'}}</text>
+        </view>
+        <view class="info-cell">
+          <text class="info-label">工作时段</text>
+          <text class="info-value">{{detail.workTime || '面议'}}</text>
+        </view>
+        <view class="info-cell">
+          <text class="info-label">招聘人数</text>
+          <text class="info-value">{{detail.recruitCount || '若干'}}</text>
+        </view>
+        <view class="info-cell">
+          <text class="info-label">发布时间</text>
+          <text class="info-value">{{detail.timeText}}</text>
+        </view>
+        <view wx:if="{{detail.experience}}" class="info-cell">
+          <text class="info-label">经验要求</text>
+          <text class="info-value">{{detail.experience}}</text>
+        </view>
+        <view wx:if="{{detail.education}}" class="info-cell">
+          <text class="info-label">学历要求</text>
+          <text class="info-value">{{detail.education}}</text>
+        </view>
+        <view wx:if="{{detail.city}}" class="info-cell">
+          <text class="info-label">工作城市</text>
+          <text class="info-value">{{detail.city}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 福利 -->
+    <view wx:if="{{detail.welfareList.length}}" class="card">
+      <view class="card-title">职位福利</view>
+      <view class="welfare">
+        <text wx:for="{{detail.welfareList}}" wx:key="*this" class="welfare-item">{{item}}</text>
+      </view>
+    </view>
+
+    <!-- 职位描述 -->
+    <view wx:if="{{detail.descList.length}}" class="card">
+      <view class="card-title">职位描述</view>
+      <view wx:for="{{detail.descList}}" wx:key="*this" class="desc-p">{{item}}</view>
+    </view>
+
+    <!-- 工作地点 -->
+    <view class="card">
+      <view class="card-title">工作地点</view>
+      <view class="address-row">
+        <text class="address-text">{{detail.address || '未填写详细地址'}}</text>
+        <text class="address-copy" bindtap="onCopyAddress">复制</text>
+      </view>
+    </view>
+
+    <view class="tips">温馨提示：面试请到公司正规办公场所，任何以报名费、押金、培训费名义收费的行为均属诈骗。</view>
+
+    <view class="bottom-placeholder"></view>
+  </block>
+
+  <empty-state wx:elif="{{error}}" text="职位不存在或已下架" subText="请返回列表查看其他职位" />
+
+  <view wx:if="{{detail}}" class="action-bar safe-bottom">
+    <view class="action-info">
+      <text class="action-phone">{{detail.contactName || '联系人'}}</text>
+      <text class="action-tip">{{detail.contactPhone || '暂无电话'}}</text>
+    </view>
+    <view class="action-btns">
+      <view wx:if="{{detail.contactWechat}}" class="btn btn-plain" bindtap="onCopyWechat">复制微信</view>
+      <view class="btn btn-primary" bindtap="onCall">电话咨询</view>
+      <button class="btn btn-share" open-type="share">分享</button>
+    </view>
+  </view>
+</view>

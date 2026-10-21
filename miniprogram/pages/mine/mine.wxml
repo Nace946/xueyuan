@@ -1,0 +1,50 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">租房招聘通</view>
+    <view class="hero-sub">找房找工作，信息一站直达</view>
+  </view>
+
+  <view class="card">
+    <view
+      wx:for="{{items}}"
+      wx:key="title"
+      class="cell"
+      data-item="{{item}}"
+      bindtap="onItemTap"
+    >
+      <view class="cell-icon">{{item.icon}}</view>
+      <view class="cell-main">
+        <text class="cell-title">{{item.title}}</text>
+        <text class="cell-desc">{{item.desc}}</text>
+      </view>
+      <text class="cell-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">联系我们</view>
+    <view class="contact-row" bindtap="onCall">
+      <text class="contact-label">客服电话</text>
+      <text class="contact-value">{{contactPhone}}</text>
+    </view>
+    <view class="contact-row">
+      <text class="contact-label">服务时间</text>
+      <text class="contact-value">{{workTime}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">免责声明</view>
+    <view class="notice">
+      1. 本平台仅提供信息展示，房源与招聘信息均由发布方提供，平台不对信息真实性、合法性作保证。
+    </view>
+    <view class="notice">
+      2. 联系发布方时请注意核实身份与资质，租房勿提前支付定金，求职勿缴纳任何名义的费用。
+    </view>
+    <view class="notice">
+      3. 如发现虚假或违规信息，请联系客服，我们将及时下架处理。
+    </view>
+  </view>
+
+  <view class="version">版本 v{{version}}</view>
+</view>

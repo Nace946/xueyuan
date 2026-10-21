@@ -1,0 +1,86 @@
+.job-card {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: 24rpx;
+  margin: 0 24rpx 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(20, 30, 50, 0.04);
+}
+
+.jc-header {
+  display: flex;
+  align-items: center;
+}
+
+.jc-logo {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: var(--radius-md);
+  background: #eceff3;
+  flex-shrink: 0;
+}
+
+.jc-header-main {
+  flex: 1;
+  margin-left: 16rpx;
+  min-width: 0;
+}
+
+.jc-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.jc-company {
+  margin-top: 6rpx;
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+}
+
+.jc-salary {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--color-price);
+  flex-shrink: 0;
+  max-width: 200rpx;
+  text-align: right;
+}
+
+.jc-tags {
+  margin-top: 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.jc-welfare {
+  margin-top: 12rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.jc-welfare-item {
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+  background: #f5f7fa;
+  border-radius: 6rpx;
+  padding: 4rpx 10rpx;
+  margin: 0 12rpx 12rpx 0;
+}
+
+.jc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12rpx;
+  border-top: 1rpx solid var(--color-line);
+}
+
+.jc-time {
+  font-size: var(--font-xs);
+  color: var(--color-text-placeholder);
+}
+
+.jc-more {
+  font-size: var(--font-sm);
+  color: var(--color-primary);
+}

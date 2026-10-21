@@ -1,0 +1,32 @@
+<view class="job-card card-class" bindtap="onTap">
+  <view class="jc-header">
+    <image
+      class="jc-logo"
+      src="{{item.companyLogo || '/assets/images/placeholder.png'}}"
+      mode="aspectFill"
+      lazy-load="{{true}}"
+    />
+    <view class="jc-header-main">
+      <view class="jc-title text-ellipsis">{{item.title}}</view>
+      <view class="jc-company text-ellipsis">{{item.companyName}}</view>
+    </view>
+    <view class="jc-salary">{{item.salaryText}}</view>
+  </view>
+
+  <view class="jc-tags">
+    <text wx:if="{{item.district}}" class="tag-gray">{{item.district}}</text>
+    <text wx:if="{{item.jobType}}" class="tag">{{item.jobType}}</text>
+    <text wx:if="{{item.payType}}" class="tag">{{item.payType}}</text>
+    <text wx:if="{{item.workTime}}" class="tag-gray">{{item.workTime}}</text>
+    <text wx:if="{{item.recruitCount}}" class="tag-gray">招{{item.recruitCount}}</text>
+  </view>
+
+  <view wx:if="{{item.welfareList.length}}" class="jc-welfare">
+    <text wx:for="{{item.welfareList}}" wx:key="*this" class="jc-welfare-item">{{item}}</text>
+  </view>
+
+  <view class="jc-footer">
+    <text class="jc-time">{{item.timeText}}</text>
+    <text class="jc-more">查看详情 ›</text>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<view class="house-card card-class" bindtap="onTap">
+  <view class="hc-img-wrap">
+    <image
+      class="hc-img"
+      src="{{item.cover || '/assets/images/placeholder.png'}}"
+      mode="aspectFill"
+      lazy-load="{{true}}"
+    />
+    <view wx:if="{{item.recommend}}" class="hc-badge">推荐</view>
+  </view>
+
+  <view class="hc-body">
+    <view class="hc-title text-ellipsis">{{item.title}}</view>
+
+    <view class="hc-meta">
+      <text>{{item.layout}}</text>
+      <text wx:if="{{item.area}}">· {{item.area}}㎡</text>
+      <text wx:if="{{item.floorText}}">· {{item.floorText}}</text>
+      <text wx:if="{{item.orientation}}">· {{item.orientation}}</text>
+    </view>
+
+    <view class="hc-address text-ellipsis">
+      <text class="hc-district">{{item.district}}</text>
+      {{item.address}}
+    </view>
+
+    <view class="hc-tags">
+      <text wx:for="{{item.tagList}}" wx:key="*this" class="tag">{{item}}</text>
+    </view>
+
+    <view class="hc-footer">
+      <text class="hc-price">¥{{item.priceText}}</text>
+      <text class="hc-unit">/月</text>
+      <text class="hc-time">{{item.timeText}}</text>
+    </view>
+  </view>
+</view>

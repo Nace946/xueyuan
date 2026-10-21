@@ -1,0 +1,90 @@
+.job-item {
+  background: var(--color-card);
+  padding: 20rpx 24rpx 18rpx;
+  border-bottom: 1rpx solid var(--color-line);
+}
+
+.job-item:active {
+  background: #fafbfc;
+}
+
+.job-item.is-last {
+  border-bottom: none;
+}
+
+.ji-head {
+  display: flex;
+  align-items: baseline;
+}
+
+.ji-title {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--font-md);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.ji-salary {
+  margin-left: 16rpx;
+  font-size: var(--font-md);
+  font-weight: 500;
+  color: var(--color-price);
+  flex-shrink: 0;
+  max-width: 240rpx;
+  text-align: right;
+}
+
+.ji-line {
+  margin-top: 6rpx;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.ji-company {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  max-width: 60%;
+}
+
+.ji-dot {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+}
+
+.ji-meta {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ji-foot {
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.ji-welfare {
+  flex: 1;
+  min-width: 0;
+  height: 36rpx;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ji-welfare-item {
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+  background: #f5f7fa;
+  border-radius: 6rpx;
+  padding: 2rpx 10rpx;
+  margin-right: 12rpx;
+}
+
+.ji-time {
+  font-size: var(--font-xs);
+  color: var(--color-text-placeholder);
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}

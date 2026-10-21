@@ -1,0 +1,25 @@
+<view class="house-item item-class" bindtap="onTap">
+  <view class="hi-head">
+    <text class="hi-title text-ellipsis">{{item.title}}</text>
+    <text class="hi-price">¥{{item.priceText}}</text>
+  </view>
+
+  <view class="hi-line">
+    <text class="hi-text">{{item.layout}}</text>
+    <text wx:if="{{item.area}}" class="hi-text"> · {{item.area}}㎡</text>
+    <text wx:if="{{item.floorText}}" class="hi-text"> · {{item.floorText}}</text>
+    <text wx:if="{{item.orientation}}" class="hi-text"> · {{item.orientation}}</text>
+  </view>
+
+  <view class="hi-line hi-addr text-ellipsis">
+    <text wx:if="{{item.district}}" class="hi-district">{{item.district}}</text>
+    <text class="hi-text">{{item.address}}</text>
+  </view>
+
+  <view class="hi-foot">
+    <view class="hi-tags">
+      <text wx:for="{{item.tagList}}" wx:key="*this" class="tag-gray">{{item}}</text>
+    </view>
+    <text class="hi-time">{{item.timeText}}</text>
+  </view>
+</view>

@@ -1,0 +1,77 @@
+<view class="page">
+  <view class="search-wrap">
+    <view class="search-box">
+      <image class="search-icon" src="/assets/icons/search.png" />
+      <input
+        class="search-input"
+        value="{{keyword}}"
+        placeholder="搜索职位 / 店铺 / 小区"
+        placeholder-class="search-placeholder"
+        bindinput="onKeywordInput"
+        confirm-type="search"
+        bindconfirm="onSearch"
+      />
+      <text wx:if="{{keyword}}" class="search-btn" bindtap="onSearch">搜索</text>
+    </view>
+  </view>
+
+  <view class="filter">
+    <scroll-view class="filter-row" scroll-x="{{true}}" show-scrollbar="{{false}}">
+      <view class="chips">
+        <view
+          class="chip {{district === '' ? 'chip-active' : ''}}"
+          data-value=""
+          bindtap="onDistrictTap"
+        >全部区域</view>
+        <view
+          wx:for="{{districts}}"
+          wx:key="*this"
+          class="chip {{district === item ? 'chip-active' : ''}}"
+          data-value="{{item}}"
+          bindtap="onDistrictTap"
+        >{{item}}</view>
+      </view>
+    </scroll-view>
+
+    <scroll-view class="filter-row" scroll-x="{{true}}" show-scrollbar="{{false}}">
+      <view class="chips">
+        <view
+          wx:for="{{jobTypes}}"
+          wx:key="value"
+          class="chip {{jobType === item.value ? 'chip-active' : ''}}"
+          data-value="{{item.value}}"
+          bindtap="onTypeTap"
+        >{{item.label}}</view>
+      </view>
+    </scroll-view>
+
+    <view class="sort-row">
+      <view
+        wx:for="{{sorts}}"
+        wx:key="value"
+        class="sort-item {{sortIndex === index ? 'sort-active' : ''}}"
+        data-index="{{index}}"
+        bindtap="onSortTap"
+      >{{item.label}}</view>
+      <view class="sort-count">共 {{total}} 个职位</view>
+    </view>
+  </view>
+
+  <view wx:if="{{firstLoading}}" class="skeleton-list">
+    <view wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this" class="skeleton-card">
+      <view class="skeleton skeleton-line" style="width:50%"></view>
+      <view class="skeleton skeleton-line" style="width:70%"></view>
+      <view class="skeleton skeleton-line" style="width:40%"></view>
+    </view>
+  </view>
+
+  <block wx:else>
+    <job-item wx:for="{{list}}" wx:key="id" item="{{item}}" />
+    <empty-state
+      wx:if="{{!list.length}}"
+      text="没有找到符合条件的职位"
+      subText="试试调整筛选条件"
+    />
+    <load-more loading="{{loading}}" hasMore="{{hasMore}}" />
+  </block>
+</view>

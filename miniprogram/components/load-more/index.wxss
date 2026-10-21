@@ -1,0 +1,36 @@
+.load-more {
+  padding: 30rpx 0 40rpx;
+}
+
+.lm-loading,
+.lm-nomore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lm-text {
+  font-size: var(--font-sm);
+  color: var(--color-text-placeholder);
+}
+
+.lm-spinner {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 12rpx;
+  border: 4rpx solid #dfe3e8;
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: lm-rotate 0.8s linear infinite;
+}
+
+@keyframes lm-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.lm-line {
+  width: 60rpx;
+  height: 1rpx;
+  background: var(--color-line);
+  margin: 0 20rpx;
+}

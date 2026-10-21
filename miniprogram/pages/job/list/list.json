@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "招聘信息",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "job-item": "/components/job-item/index",
+    "empty-state": "/components/empty-state/index",
+    "load-more": "/components/load-more/index"
+  }
+}

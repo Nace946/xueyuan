@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "租房招聘通",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "house-card": "/components/house-card/index",
+    "job-item": "/components/job-item/index",
+    "empty-state": "/components/empty-state/index"
+  }
+}

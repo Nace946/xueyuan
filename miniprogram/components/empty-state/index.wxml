@@ -1,0 +1,8 @@
+<view class="empty-state">
+  <view class="es-icon">
+    <view class="es-box"></view>
+    <view class="es-line"></view>
+  </view>
+  <text class="es-text">{{text}}</text>
+  <text wx:if="{{subText}}" class="es-sub">{{subText}}</text>
+</view>

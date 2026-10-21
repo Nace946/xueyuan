@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "职位详情",
+  "usingComponents": {
+    "empty-state": "/components/empty-state/index"
+  }
+}

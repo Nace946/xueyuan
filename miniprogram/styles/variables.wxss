@@ -1,0 +1,41 @@
+page {
+  /* 主色：蓝色系（初版配色） */
+  --color-primary: #2b7de9;
+  --color-primary-light: #eaf2fd;
+  --color-primary-dark: #1a5fbd;
+
+  /* 辅助色 */
+  --color-price: #ff6b35;
+  --color-success: #22b573;
+  --color-warning: #ff9f1c;
+  --color-danger: #ee4d4d;
+
+  /* 文字 */
+  --color-text: #22262c;
+  --color-text-secondary: #6b7280;
+  --color-text-placeholder: #9aa0a6;
+
+  /* 背景与线条 */
+  --color-bg: #f5f6f8;
+  --color-card: #ffffff;
+  --color-line: #eceff3;
+
+  /* 字号 */
+  --font-xs: 22rpx;
+  --font-sm: 24rpx;
+  --font-base: 28rpx;
+  --font-md: 30rpx;
+  --font-lg: 34rpx;
+  --font-xl: 40rpx;
+
+  /* 间距 */
+  --space-xs: 8rpx;
+  --space-sm: 16rpx;
+  --space-md: 24rpx;
+  --space-lg: 32rpx;
+
+  /* 圆角 */
+  --radius-sm: 8rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+}

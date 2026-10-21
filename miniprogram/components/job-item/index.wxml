@@ -1,0 +1,25 @@
+<view class="job-item {{last ? 'is-last' : ''}} item-class" bindtap="onTap">
+  <view class="ji-head">
+    <text class="ji-title text-ellipsis">{{item.title}}</text>
+    <text class="ji-salary">{{item.salaryText}}</text>
+  </view>
+
+  <view class="ji-line">
+    <text class="ji-company text-ellipsis">{{item.companyName}}</text>
+    <text wx:if="{{item.jobType}}" class="ji-dot"> · {{item.jobType}}</text>
+    <text wx:if="{{item.payType}}" class="ji-dot"> · {{item.payType}}</text>
+  </view>
+
+  <view class="ji-line ji-meta">
+    <text wx:if="{{item.district}}" class="tag-gray">{{item.district}}</text>
+    <text wx:if="{{item.workTime}}" class="tag-gray">{{item.workTime}}</text>
+    <text wx:if="{{item.recruitCount}}" class="tag-gray">招{{item.recruitCount}}</text>
+  </view>
+
+  <view class="ji-foot">
+    <view class="ji-welfare">
+      <text wx:for="{{item.welfareList}}" wx:key="*this" class="ji-welfare-item">{{item}}</text>
+    </view>
+    <text class="ji-time">{{item.timeText}}</text>
+  </view>
+</view>
